@@ -8,11 +8,17 @@ export default function IndexPage() {
 
   useEffect(() => {
     async function getCountryInfo() {
-      const result = await Axios.get(`https://restcountries.eu/rest/v2/all`);
+      const result = await Axios.get(
+        `https://restcountries.eu/rest/v2/all?fields=name;capital;currencies;population;topLevelDomain;cioc;flag;region;demonym;languages;timezones`
+      );
       setInfo(result.data);
     }
     getCountryInfo();
   }, []);
+
+  useEffect(() => {
+    console.log("countries fetched: ", info.length);
+  }, [info]);
 
   return (
     <div className="container mx-auto">
@@ -27,7 +33,7 @@ export default function IndexPage() {
           }}
         />
       </div>
-      <div className="flex max-w-screen flex-wrap justify-center transition duration-150 ease-in-out">
+      <div className="custom__scroll flex  max-h-screen max-w-screen flex-wrap justify-center transition duration-150 ease-in-out overflow-y-auto">
         {info ? (
           info
             .filter((country) => {
