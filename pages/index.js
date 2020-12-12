@@ -3,7 +3,7 @@ import Axios from "axios";
 import CountryDialog from "../components/CountryDialog";
 
 export default function IndexPage() {
-  const [country, setCountry] = useState("");
+  const [countryFilter, setCountryFilter] = useState("");
   const [info, setInfo] = useState([]);
 
   useEffect(() => {
@@ -18,20 +18,26 @@ export default function IndexPage() {
     <div className="container mx-auto">
       <div className="flex items-center justify-center mt-10 mb-10">
         <input
-          className="bg-blue-200 py-2 px-4 rounded-md mr-5"
+          className="bg-gray-500 py-2 px-4 rounded-md mr-5"
           type="text"
           placeholder="Filter by name..."
-          value={country}
+          value={countryFilter}
           onChange={(event) => {
-            setCountry(event.target.value);
+            setCountryFilter(event.target.value);
           }}
         />
       </div>
-      <div className="flex max-w-screen flex-wrap">
+      <div className="flex max-w-screen flex-wrap justify-center transition duration-150 ease-in-out">
         {info ? (
-          info.map((country, index) => (
-            <CountryDialog key={index} country={country} />
-          ))
+          info
+            .filter((country) => {
+              return country.name
+                .toLowerCase()
+                .includes(countryFilter.toLowerCase());
+            })
+            .map((country, index) => (
+              <CountryDialog key={index} country={country} />
+            ))
         ) : (
           <div>Loading...</div>
         )}
