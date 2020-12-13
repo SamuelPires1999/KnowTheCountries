@@ -3,7 +3,7 @@ export default function CountryDialog({ country }) {
   return (
     <>
       <div
-        className="w-1/4 p-3 shadow-lg hover:bg-gray-500 cursor-pointer rounded-lg m-1 transition duration-150 ease-in-out"
+        className="md:w-1/4 sm:w-screen p-3 shadow-lg hover:bg-gray-500 cursor-pointer rounded-lg m-1 transition duration-150 ease-in-out"
         onClick={() => {
           setShowModal(true);
         }}

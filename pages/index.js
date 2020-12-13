@@ -33,7 +33,7 @@ export default function IndexPage() {
           }}
         />
       </div>
-      <div className="custom__scroll flex  max-h-screen max-w-screen flex-wrap justify-center transition duration-150 ease-in-out overflow-y-auto">
+      <div className="custom__scroll md:flex sm:flex-col max-h-screen max-w-screen flex-wrap justify-center transition duration-150 ease-in-out overflow-y-auto">
         {info ? (
           info
             .filter((country) => {
