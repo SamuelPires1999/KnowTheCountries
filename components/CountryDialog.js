@@ -3,18 +3,18 @@ export default function CountryDialog({ country }) {
   return (
     <>
       <div
-        className="md:w-1/4 sm:w-screen p-3 shadow-lg hover:bg-gray-500 cursor-pointer rounded-lg m-1 transition duration-150 ease-in-out"
+        className="md:w-1/4 sm:w-screen p-3 shadow-lg hover:bg-gray-500 cursor-pointer rounded-lg m-1 transform transition duration-150 ease-in-out  hover:scale-110"
         onClick={() => {
           setShowModal(true);
         }}
       >
-        <div className="flex items-center">
+        <div className="flex items-center justify-between">
           <h1 className="font-bold text-gray-800">
             {country ? country.name : "Loading"}
             {country.cioc ? `(${country.cioc})` : null}
           </h1>
           <img
-            className="w-10 h-7 border-black border-l-2 border-r-2 border-t-2 border-b-2 border-opacity-40 shadow-xl ml-10"
+            className="w-10 h-7  shadow-xl ml-10"
             src={country ? country.flag : "Loading"}
           />
         </div>
@@ -27,14 +27,14 @@ export default function CountryDialog({ country }) {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-gray-300 outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-center justify-between p-5 border-b border-solid border-gray-500 rounded-t">
-                  <h3 className="text-2xl font-semibold text-gray-600">
+                  <h3 className="text-2xl font-semibold text-gray-600 ">
                     {country ? country.name : null}
                     {country.cioc ? `(${country.cioc})` : null}
                   </h3>
                   <img
                     alt={`${country.name}'s flag`}
                     src={country.flag}
-                    className="w-10 h-7"
+                    className="w-10 h-7 "
                   />
                 </div>
                 {/*body*/}
@@ -89,7 +89,7 @@ export default function CountryDialog({ country }) {
                 {/*footer*/}
                 <div className="flex items-center justify-center p-6 border-t border-solid border-gray-500 rounded-b">
                   <button
-                    className="text-gray-600 bg-red-400 hover:bg-red-600 hover:text-white rounded-md font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 transition duration-300 ease-in-out"
+                    className=" bg-red-500 hover:bg-red-600 text-white rounded-md font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 transition duration-300 ease-in-out"
                     type="button"
                     style={{ transition: "all .15s ease" }}
                     onClick={() => setShowModal(false)}
